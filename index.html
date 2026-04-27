@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honalee Productions LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #141414;
+      --warm-white: #f5f0e8;
+      --cream: #e8e0d0;
+      --gold: #c9a96e;
+      --gold-soft: #b8956a;
+      --muted: #7a7060;
+      --rule: rgba(201, 169, 110, 0.25);
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--black);
+      color: var(--warm-white);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.4;
+    }
+
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 1s ease both;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--warm-white);
+      line-height: 1;
+    }
+
+    .logo-productions {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 0.15rem;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 1s ease 0.15s both;
+    }
+
+    .about p {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.85;
+      color: var(--cream);
+      max-width: 620px;
+    }
+
+    /* ── CURRENT PROJECT ── */
+    .project {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 1s ease 0.3s both;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--warm-white);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-name span {
+      color: var(--gold);
+    }
+
+    .project-tagline {
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.2rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--warm-white);
+      border-color: var(--warm-white);
+    }
+
+    .project-link::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .project-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* ── FOUNDER ── */
+    .founder {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 1s ease 0.45s both;
+    }
+
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .founder p {
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+      line-height: 1.85;
+      color: var(--cream);
+      max-width: 620px;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 3rem 0 5rem;
+      animation: fadeUp 1s ease 0.6s both;
+    }
+
+    .contact-grid {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .contact-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value:hover {
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 0;
+    }
+
+    footer p {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── DECORATIVE RULE ── */
+    .gold-rule {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.6;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .wrapper { padding: 0 1.25rem; }
+      header { padding: 3rem 0 2.5rem; }
+      .contact-grid { flex-direction: column; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <div class="logo-mark">
+        <div class="logo-h">Honalee</div>
+        <div class="logo-productions">Productions LLC</div>
+      </div>
+      <div class="tagline">Where imagination meets purpose.</div>
+    </header>
+
+    <section class="about">
+      <p>Honalee Productions is an Arlington Heights, Illinois company built on a simple belief: the most important work sits at the intersection of creativity and conscience. We make things worth making — stories that matter, and products that protect.</p>
+    </section>
+
+    <section class="project">
+      <div class="section-label">Current Project</div>
+      <div class="gold-rule"></div>
+      <div class="project-name">Thi<span>a</span></div>
+      <div class="project-tagline">The AI Assistant Built for Teenagers —<br>with a Quiet Safety Net for the Parents Who Love Them.</div>
+      <a href="https://meetthia.com" class="project-link" target="_blank">meetthia.com</a>
+    </section>
+
+    <section class="founder">
+      <div class="section-label">The Founder</div>
+      <div class="gold-rule"></div>
+      <div class="founder-name">Stanley B. Eisenhammer</div>
+      <p>Stanley B. Eisenhammer is a Founding Partner of Hodges Loizzi Eisenhammer Rodick &amp; Kohn, successfully argued before the United States Supreme Court, served on the Board of Education of Township High School District No. 214 and the Board of Trustees of Arlington Heights, and is the writer and director of <em>Swipe Right to Die</em>. He founded Honalee to make things worth making — films, and now the product that parents of teenagers have been waiting for.</p>
+    </section>
+
+    <section class="contact">
+      <div class="section-label">Contact</div>
+      <div class="gold-rule"></div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="/cdn-cgi/l/email-protection#c5b6a7a0acb6a0abada4a8a8a0b785a2a8a4aca9eba6aaa8" class="contact-value"><span class="__cf_email__" data-cfemail="443726212d37212a2c2529292136042329252d286a272b29">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a href="tel:8476128698" class="contact-value">847.612.8698</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Arlington Heights, Illinois</span>
+        </div>
+      </div>
+    </section>
