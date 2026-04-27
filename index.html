@@ -16,7 +16,7 @@
       --cream: #e8e0d0;
       --gold: #c9a96e;
       --gold-soft: #b8956a;
-      --muted: #7a7060;
+      --muted: #b0accc;
       --rule: rgba(201, 169, 110, 0.25);
     }
 
@@ -169,11 +169,71 @@
       transform: translateX(4px);
     }
 
+    /* ── FILMS ── */
+    .films {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 1s ease 0.45s both;
+    }
+
+    .film-card {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      text-decoration: none;
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: border-color 0.3s, background 0.3s;
+      max-width: 520px;
+    }
+
+    .film-card:hover {
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.04);
+    }
+
+    .film-play {
+      font-size: 1.4rem;
+      color: var(--gold);
+      opacity: 0.8;
+      flex-shrink: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .film-card:hover .film-play {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    .film-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--warm-white);
+      margin-bottom: 0.3rem;
+    }
+
+    .film-description {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .film-watch {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
     /* ── FOUNDER ── */
     .founder {
       padding: 3.5rem 0;
       border-bottom: 1px solid var(--rule);
-      animation: fadeUp 1s ease 0.45s both;
+      animation: fadeUp 1s ease 0.6s both;
     }
 
     .founder-name {
@@ -293,6 +353,19 @@
       <a href="https://meetthia.com" class="project-link" target="_blank">meetthia.com</a>
     </section>
 
+    <section class="films">
+      <div class="section-label">Film Production</div>
+      <div class="gold-rule"></div>
+      <a href="https://youtu.be/cRaZQD37Opc" target="_blank" class="film-card">
+        <div class="film-play">▶</div>
+        <div class="film-info">
+          <div class="film-title">Swipe Right to Die</div>
+          <div class="film-description">A modern love story gone wrong. Very wrong.</div>
+          <div class="film-watch">Watch on YouTube →</div>
+        </div>
+      </a>
+    </section>
+
     <section class="founder">
       <div class="section-label">The Founder</div>
       <div class="gold-rule"></div>
@@ -306,7 +379,7 @@
       <div class="contact-grid">
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <a href="/cdn-cgi/l/email-protection#c5b6a7a0acb6a0abada4a8a8a0b785a2a8a4aca9eba6aaa8" class="contact-value"><span class="__cf_email__" data-cfemail="443726212d37212a2c2529292136042329252d286a272b29">[email&#160;protected]</span></a>
+          <span class="contact-value">sbeisenhammer&#64;gmail.com</span>
         </div>
         <div class="contact-item">
           <span class="contact-label">Phone</span>
@@ -317,4 +390,4 @@
           <span class="contact-value">Arlington Heights, Illinois</span>
         </div>
       </div>
-    </section>updated
+    </section>
